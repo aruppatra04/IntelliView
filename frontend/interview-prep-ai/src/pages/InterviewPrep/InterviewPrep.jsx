@@ -15,7 +15,7 @@ import Drawer from '../../components/Drawer';
 import SkeletonLoader from '../../components/Loader/SkeletonLoader';
 
 
-const InterViewprep = () => {
+export const InterViewprep = () => {
 
   const { sessionId } = useParams();
   
