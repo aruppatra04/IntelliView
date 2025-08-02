@@ -1,4 +1,6 @@
-export const BASE_URL = "http://localhost:5001";
+// export const BASE_URL = "http://localhost:5001"; 
+export const BASE_URL = "https://intelliview-sw31.onrender.com"; // render backend deploy link
+
 
 export const API_PATHS = {
     AUTH: {

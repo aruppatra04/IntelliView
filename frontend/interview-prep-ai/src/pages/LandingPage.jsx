@@ -7,7 +7,7 @@ import Modal from "../components/Modal.jsx";
 import Login from "./Auth/Login.jsx";
 import Signup from "./Auth/Signup.jsx";
 import { UserContext } from "../context/userContext.jsx";
-import ProfileInfoCard from "../components/Cards/ProfileInfoCard.jsx"
+import ProfileInfoCard from "../components/Cards/ProfileInfoCard.jsx";
 
 const LandingPage = () => {
   const { user } = useContext(UserContext);
@@ -17,7 +17,7 @@ const LandingPage = () => {
   const [currentPage, setCurrentPage] = useState("login");
 
   const handleCTA = () => {
-    if(!user) {
+    if (!user) {
       setOpenAuthModal(true);
     } else {
       navigate("/dashboard");
@@ -32,18 +32,28 @@ const LandingPage = () => {
         <div className="container mx-auto px-4 pt-6 pb-[200px] relative z-10">
           {/* {header} */}
           <header className="flex justify-between items-center mb-16">
-            <div className="text-xl text-black font-bold">
-              Intelli_View
+            <div className="flex items-center gap-2">
+              <img
+                src="/logo.png"
+                alt="Logo"
+                className="h-8 w-8 object-contain"
+              />
+              <img
+                src="/name.png"
+                alt="Name"
+                className="h-5 md:h-6 object-contain"
+              />
             </div>
 
             {user ? (
-              <ProfileInfoCard /> 
-            ) : ( <button
+              <ProfileInfoCard />
+            ) : (
+              <button
                 className="bg-linear-to-r from-[#FF9324] to-[#e99a4b] text-sm font-semibold text-white px-7 py-2.5 rounded-full hover:bg-black hover:text-white border border-white transition-colors cursor-pointer"
                 onClick={() => setOpenAuthModal(true)}
               >
                 Login / SignUp
-              </button> 
+              </button>
             )}
           </header>
 
@@ -138,15 +148,9 @@ const LandingPage = () => {
           </div>
         </div>
 
-        {/* <div className="text-sm bg-gray-50 text-secondary text-center p-5 mt-5">
-            Made with .... Happy Coding
-        </div> */}
         <div className="text-sm bg-gray-50 text-secondary text-center p-3 mt-0">
-            © {new Date().getFullYear()} Arup Patra. All rights reserved.
+          © {new Date().getFullYear()} Arup Patra. All rights reserved.
         </div>
-        {/* <div className="text-center text-sm mt-10 text-neutral-500">
-            © {new Date().getFullYear()} Arup Patra. All rights reserved.
-        </div> */}
       </div>
 
       <Modal
@@ -158,9 +162,7 @@ const LandingPage = () => {
         hideHeader
       >
         <div>
-          {currentPage === "login" && (
-            <Login setCurrentPage={setCurrentPage} /> 
-          )}
+          {currentPage === "login" && <Login setCurrentPage={setCurrentPage} />}
           {currentPage === "signup" && (
             <Signup setCurrentPage={setCurrentPage} />
           )}
